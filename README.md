@@ -1,31 +1,83 @@
-# How to use this template
-Template for repositories for v6 allocators. Please ensure you fill out the Readme file with correct information, within 2 weeks of being accepted as an allocator. Remove the this top header to start with your allocator name
-
-# Allocator Bookeeping repository for <Allocator Name>
-_Replace <Allocator Name> with your Allocator's name_
+# Allocator Bookkeeping Repository for OpenLedger Pathway
 
 ## Allocator JSON Link
-_put here a link to your allocator json from https://github.com/filecoin-project/Allocator-Registry/tree/main/Allocators_
+[OpenLedger Pathway JSON](https://github.com/filecoin-project/Allocator-Registry/tree/main/Allocators/OpenLedger_Pathway.json)
 
-## Client Dilligence
-_**YOU SHOULD HAVE PUT INFO IN THE AIRTABLE FORM, YOU CAN COPY IT HERE**. Describe your pathway's mechanism for verifying your clients and establishing initial trust. How will you mitigate sybil attacks? For example if you are proposing an automated pathway what rate limits or deterministics will you use? If you are working with enterprise or paying clients, how will you verify the authenticity of their data ownership claims? How will you provide evidence and proof to the Governance Team for auditing your client diligence?_
+## Client Diligence
+
+OpenLedger Pathway employs a rigorous, transparent client diligence process to ensure trust and prevent abuse:
+
+- **KYC/KYB Verification**:  
+  Clients submit identification or business registration documents via Jumio/Veriff. For requests over 500 TiB, video calls are conducted for additional identity confirmation. Cross-checks with public records prevent Sybil attacks. All verification events are anonymized and logged on GitHub for Governance Team audits.
+- **Ownership Validation**:  
+  Enterprise clients must provide legal documents (e.g., licenses, contracts) to prove data ownership.  
+- **Evidence and Auditability**:  
+  All client diligence records, including anonymized logs and supporting documentation, are published or summarized on GitHub, ensuring transparency and auditability.
 
 ## Description of Data Diligence
-_**YOU SHOULD HAVE PUT INFO IN THE AIRTABLE FORM, YOU CAN COPY IT HERE**. Describe how you will perform data diligence to verify your clients are within program scope. How will you ensure the data meets local & regional legal requirements and the client is the data owner? What types of data sampling will you perform? What tools will you use to confirm the data in deals matches initial client claims? What proof of this diligence can you show the Governance team during an audit?_
 
-## Short description of pathway for clients
-_In your own words why should a client use your allocator? We intend to display this information in [fil.org/filecoin-plus/allocators](https://fil.org/filecoin-plus/allocators), so this is how you can distinguish yourself from other allocators_
+To ensure all datasets meet Fil+ and legal requirements, OpenLedger Pathway conducts the following:
 
-## Contact info
-_How can a client contact you? Give here your Slack ID, emails or whatever contact info you would like to share_
+- **Legal Compliance**:  
+  Datasets are verified for compliance with local/regional laws via legal consultation. Clients provide compliance declarations and legal ownership proofs, which are logged on GitHub.
+- **Data Ownership Verification**:  
+  Clients submit source documents (e.g., research papers, repository links) or enterprise contracts. Ownership is cross-checked using public records or third-party audits (e.g., Qichacha), and summarized on GitHub.
+- **Random Data Sampling**:  
+  10% of each dataset is sampled using the CID Checker Bot to verify that the content matches client claims and is publicly retrievable. Sampling results are published on GitHub.
+- **Data Quality and Deal Confirmation**:  
+  Bi-monthly retrieval tests by CID Checker Bot ensure 95% retrievability across 4–5 replicas in 3–4 regions. Deal data is tracked on DataCapStats.io, with logs available on GitHub for review.
 
-## Detailed Allocator policies, procedures, and requirements.
+## Short Description of Pathway for Clients
 
-## Risk mitigation strategies 
-_What is the processes for protecting your organization, reputation, and pathway from abuse. For example, what Operational Security (OpSec) standards, user agreements, alerts, or throttling mechanisms will you employ?_ 
+OpenLedger Pathway provides efficient, fair allocation of up to 1 PiB of DataCap for open, public datasets such as research or archives. Our rigorous KYC, regular data sampling, and transparent audit logs on GitHub guarantee high-quality, retrievable storage on Filecoin, tailored to diverse client needs.
 
-## Dispute Resolutions 
-_A dispute within the context of DataCap allocation refers to any contention or disagreement arising between parties involved in the storage and retrieval of data on the Filecoin network. This could involve discrepancies over DataCap distribution, disagreements on data compliance with stated parameters, or conflicts over the execution of storage deals. Disputes may be internal, involving yourself and your client, or external, where you will need to defend your decisions against another active allocator or the Fil+ Governance Team._
+## Contact Info
+
+- **Slack:** @U02A9HJ2JBV (Filecoin Slack)  
+- **Email:** zhangxin@ruilanit.cn  
+- **GitHub:** [OpenLedger Pathway Repository](https://github.com/OpenLedger-Pathway)
+
+## Detailed Allocator Policies, Procedures, and Requirements
+
+- **Policies:**  
+  Outlined in `/policies/client_diligence_policy.md` and `/policies/data_diligence_policy.md` on GitHub, covering KYC/KYB, data sampling, rate limits, and compliance.
+- **Procedures:**  
+  - Clients apply via FIDL Allocator Directory or GitHub issue template.  
+  - KYC/KYB via Jumio/Veriff, with video calls for >500 TiB requests.  
+  - 10% data sampling and bi-monthly retrieval tests using CID Checker Bot.  
+  - Tranche-based allocation: 50 TiB initial, up to 1 PiB after verification.
+- **Requirements:**  
+  Datasets must be public, retrievable, and stored with 4–5 replicas across 3–4 regions. Clients must submit ownership proof and compliance declarations.
+
+## Risk Mitigation Strategies
+
+- **Operational Security:**  
+  Multi-signature wallets with Ledger hardware for DataCap allocation, restricted to verified team members.
+- **User Agreements:**  
+  Clients sign agreements confirming data ownership and compliance, logged on GitHub.
+- **Alerts:**  
+  DataCapStats.io monitors for duplicate wallets; automated alerts flag suspicious activity.
+- **Throttling:**  
+  Cap at 2 PiB/month and 1 PiB/client, with a 30-day cooling-off period between tranches.
+- **Blacklisting:**  
+  Non-compliant clients (e.g., fraudulent data) are suspended, with records logged on GitHub.
+
+## Dispute Resolutions
+
+- **Internal Disputes:**  
+  Resolved within 48 hours via email/Slack, logged on GitHub with hashed client ID.
+- **External Disputes:**  
+  Resolved within 5 days, documented publicly on GitHub. Non-compliant parties may face DataCap suspension.
+- **Process:**  
+  Clients submit disputes via GitHub issues. The team reviews using KYC/KYB, data sampling, and DataCapStats.io data. All resolutions are transparent for Governance Team review.
 
 ## Compliance Audit Check
-_How do you plan to ensure that your clients, and the storage providers they interact with are all in compliance with both program-wide and pathway specific requirements._
+
+- **Client Compliance:**  
+  KYC/KYB, ownership, and legal compliance verified via Jumio/Veriff, legal consultations, and document audits; results logged on GitHub.
+- **SP Compliance:**  
+  Confirm 4–5 replicas across 3–4 regions through DataCapStats.io and CID Checker Bot. Non-compliant SPs are excluded.
+- **Audits:**  
+  Governance Team receives anonymized KYC/KYB reports, sampling and retrieval test logs, deal verification data, and dispute resolution records via GitHub.
+- **Ongoing Monitoring:**  
+  Monthly audits of 5% of clients, with results published on FIDL Dashboards and GitHub.
